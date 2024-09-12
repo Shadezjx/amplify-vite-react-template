@@ -5,8 +5,6 @@ import { generateClient } from "aws-amplify/data";
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import "../modal/Modal.css";
-import inputValue from "../modal/Modal.tsx"
-const a  = 0;
 
 
 function Modal() {
