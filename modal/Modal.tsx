@@ -1,8 +1,9 @@
+// Modal.tsx
 import React, { useState } from "react";
 import "../modal/Modal.css";
 
 interface ModalProps {
-  addTodo: (content: string) => void; // Add this prop type
+  addTodo: (content: string) => void;
 }
 
 function Modal({ addTodo }: ModalProps) {
@@ -15,9 +16,11 @@ function Modal({ addTodo }: ModalProps) {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    addTodo(inputValue); // Call the function passed as prop
-    setInputValue(''); // Clear the input field
-    toggleModal(); // Close the modal
+    if (inputValue.trim()) {
+      addTodo(inputValue);
+      setInputValue(''); // Clear the input field
+      toggleModal(); // Close the modal
+    }
   };
 
   const toggleModal = () => {
@@ -51,7 +54,6 @@ function Modal({ addTodo }: ModalProps) {
               />
               <button type="submit">Gửi</button>
             </form>
-
             <button className="close-modal" onClick={toggleModal}>
               X
             </button>
